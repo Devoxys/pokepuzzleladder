@@ -417,6 +417,7 @@ inteleon
 ironbundle
 ironhands
 ironjugulis
+ironleaves
 ironmoth
 ironthorns
 irontreads
@@ -955,6 +956,7 @@ vullaby
 vulpix
 wailmer
 wailord
+walkingwake
 walrein
 wartortle
 watchog

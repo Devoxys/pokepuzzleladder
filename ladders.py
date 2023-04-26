@@ -1,4 +1,5 @@
-from util import get_triedict
+from util import get_triedict, get_pokemon_list
+from hopcroftkarp import hopcroftkarp
 
 def row_head_match(row: str, ncol: int, head: list) -> bool:
     if ncol != len(row):
@@ -64,14 +65,65 @@ def solve_ladder(td: dict, ncol: int, nrow: int, head: list, start: str, end: st
             continue
     return None
 
-def check_ladder(td: dict, ncol: int, nrow: int, head: list, ladder: list) -> bool:
+def find_links(row1: str, row2: str) -> list:
+    i = 0
+    row1textfound = False
+    row2textfound = False
+    links = []
+    while i < len(row1) - 2:
+        if (not row1textfound and row1[i] != '_'):
+            row1textfound = True
+        elif (row1textfound and row1[i+2] == '_'):
+            break
+        if (not row2textfound and row2[i] != '_'):
+            row2textfound = True
+        elif (row2textfound and row2[i+2] == '_'):
+            break
+        if (row1[i:i+3] == row2[i:i+3]):
+            links.append(row1[i:i+3])
+        i += 1
+    return links
+            
+
+def check_ladder(lp: dict, ncol: int, nrow: int, head: list, ladder: list) -> bool:
+    for i in range(nrow):
+        if len(ladder[i]) != ncol:
+            return False
+    for i in range(ncol):
+        count = 0
+        for row in ladder:
+            if row[i] != '_':
+                count += 1
+        if count != head[i]:
+            return False
+    if ladder[0].strip('_') not in lp:
+        return False
     
+    used_pokemon = [ladder[0]]
+    used_links = []
+    all_links = set()
+    for i in range(nrow - 1):
+        pname = ladder[i+1].strip('_')
+        if pname not in lp or pname in used_pokemon:
+            return False
+        links = find_links(ladder[i], ladder[i+1])
+        if len(links) == 0:
+            return False
+        used_links.append(links)
+        for link in links:
+            all_links.add(link)
+    linkgraph = {k: v for k, v in enumerate(used_links)}
+    print(hopcroftkarp(linkgraph, linkgraph.keys(), all_links))
     return True
 
 if __name__ == "__main__":
     td = get_triedict()
+    lp = get_pokemon_list()
     #print(solve_ladder(td, 8, 2, [2, 2, 2, 2, 2, 2, 2, 1], "pikachu__", "vikavolt", ["pikachu"], []))
-    #print(solve_ladder(td, 9, 5, [3, 4, 4, 5, 5, 5, 5, 3, 2], "pikachu__", "___swanna", ["pikachu"], []))
-    #print(solve_ladder(td, 12, 6, [1, 4, 5, 6, 6, 6, 5, 5, 5, 3, 1, 1], "kakuna______", "___dragonair", ["kakuna"], []))
+    #test_ladder = solve_ladder(td, 9, 5, [3, 4, 4, 5, 5, 5, 5, 3, 2], "pikachu__", "___swanna", ["pikachu"], [])
+    #test_ladder = solve_ladder(td, 12, 6, [1, 4, 5, 6, 6, 6, 5, 5, 5, 3, 1, 1], "kakuna______", "___dragonair", ["kakuna"], [])
     #print(solve_ladder(td, 12, 7, [1, 2, 4, 5, 6, 6, 7, 7, 7, 4, 4, 3], "bulbasaur___", "_frosmoth___", ["bulbasaur"], []))
-    print(solve_ladder(td, 12, 8, [1, 4, 5, 7, 8, 8, 8, 7, 7, 4, 2, 1], "___arceus___", "_igglybuff__", ["arceus"], []))
+    test_ladder = ['kakuna______', '__lunatone__', '_magneton___', '_magcargo___', '_volcarona__', '___dragonair']
+    #test_ladder = solve_ladder(td, 12, 8, [1, 4, 5, 7, 8, 8, 8, 7, 7, 4, 2, 1], "___arceus___", "_igglybuff__", ["arceus"], [])
+    print(test_ladder)
+    print(check_ladder(lp, 12, 6, [1, 4, 5, 6, 6, 6, 5, 5, 5, 3, 1, 1], test_ladder))

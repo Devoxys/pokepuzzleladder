@@ -222,10 +222,10 @@ def generate_ladder(td: dict, lp: list, nrow: int) -> dict:
             if row[i] != '_':
                 head[i] += 1
     
-    return {"head": head, "ladder": full_ladder}
+    return { "head": head, "ladder": full_ladder }
 
 def generate_puzzle(solution: dict) -> dict:
-    return {"head": solution["head"], "start": solution["ladder"][0], "end": solution["ladder"][-1]}
+    return { "head": solution["head"], "start": solution["ladder"][0], "end": solution["ladder"][-1], "nrow": len(solution["ladder"]) }
 
 
 if __name__ == "__main__":

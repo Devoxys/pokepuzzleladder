@@ -1,4 +1,4 @@
-const Head = ({ head }) => {
+const HeadRow = ({ head }) => {
     return (
         <div className='head'>
             {head.map((num, i) =>
@@ -8,4 +8,4 @@ const Head = ({ head }) => {
     )
 }
 
-export default Head
+export default HeadRow

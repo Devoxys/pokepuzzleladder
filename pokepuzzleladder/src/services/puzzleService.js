@@ -6,6 +6,10 @@ const getPuzzle = async () => {
     return response.data
 }
 
+const checkAnswer = async (ladder) => {
+    
+}
+
 const puzzleService = {
     getPuzzle
 }

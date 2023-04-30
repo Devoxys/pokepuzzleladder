@@ -12,11 +12,22 @@ code {
     monospace;
 }
 
+.App {
+  justify-content: center;
+  text-align: center;
+}
+
+.puzzle {
+  justify-content: center;
+  text-align: center;
+}
+
 
 .grid {
-  display: block;
+  display: inline-block;
   text-align: center;
   border-spacing: 5px;
+  margin: 20px;
 }
 
 .row {
@@ -65,4 +76,17 @@ code {
   font-weight: bold;
   font-size: 1em;
   border: none;
+}
+
+button {
+  border: none;
+  padding: 10px 60px;
+  margin: 10px auto;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+#rules {
+  text-align: left;
 }

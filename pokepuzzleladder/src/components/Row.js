@@ -27,7 +27,7 @@ const Row = ({ defaultText, ncol, num, setCell }) => {
         if (event.target.value === '') {
             setCell(id_row, id_col, '_')
         } else {
-            setCell(id_row, id_col, event.target.value)
+            setCell(id_row, id_col, event.target.value.toLowerCase())
         }
         
         if (event.target.value !== '' && id_col < ncol - 1) {

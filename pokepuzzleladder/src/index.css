@@ -90,3 +90,15 @@ button {
 #rules {
   text-align: left;
 }
+
+.incorrectMessage {
+  font-size: 1.25em;
+  color: red;
+}
+
+.resultBox {
+  background-color: aquamarine;
+  font-size: 2em;
+  padding: 20px;
+  font-weight: bold;
+}

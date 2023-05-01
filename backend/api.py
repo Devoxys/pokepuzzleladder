@@ -17,6 +17,7 @@ def get_puzzle():
 
 @app.route('/check_ladder', methods=['POST'])
 def check_ladder():
+    #print(request.headers)
     request_data = request.get_json()
     head = request_data['head']
     ladder = request_data['ladder']

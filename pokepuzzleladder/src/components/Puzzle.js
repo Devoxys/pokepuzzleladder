@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react'
 import puzzleService from '../services/puzzleService'
 import HeadRow from "./HeadRow"
 import Row from "./Row"
+import IncorrectMessage from './IncorrectMessage'
+import Result from './Result'
 
 const Puzzle = ({ puzzle }) => {
+    const [rows, setRows] = useState([])
+    const [correctness, setCorrectness] = useState(0)
+
     const ncol = puzzle.head.length
     const keys = [...Array(puzzle.nrow).keys()]
-    const [rows, setRows] = useState([])
     
     useEffect(() => {
         let initialState = [puzzle.start.split('')]
@@ -34,7 +38,27 @@ const Puzzle = ({ puzzle }) => {
             ladder: ladderRows
         }
         const res = await puzzleService.checkAnswer(ladderObj)
-        console.log(res)
+        if (res.correct) {
+            setCorrectness(1)
+            console.log('Correct')
+        } else {
+            setCorrectness(-1)
+            console.log('Incorrect')
+        }
+    }
+
+    if (correctness === 1) {
+        return (
+            <div className="puzzle">
+                <div className="grid">
+                    <HeadRow head={puzzle.head}/>
+                    <Row key={0} defaultText={puzzle.start} ncol={ncol} num={0}/>
+                    {keys.slice(1, -1).map(key => <Row key={key} ncol={ncol} num={key} defaultText={rows[key].join('')}/>)}
+                    <Row key={puzzle.nrow-1} defaultText={puzzle.end} ncol={ncol} num={puzzle.nrow-1}/>
+                    <Result visible={correctness}/>
+                </div>
+            </div>
+        )
     }
 
     return (
@@ -47,6 +71,7 @@ const Puzzle = ({ puzzle }) => {
                     <Row key={puzzle.nrow-1} defaultText={puzzle.end} ncol={ncol} num={puzzle.nrow-1}/>
                     <button id="submit-button" type="submit">Check!</button>
                 </form>
+                <IncorrectMessage visible={correctness}/>
             </div>
         </div>
     )

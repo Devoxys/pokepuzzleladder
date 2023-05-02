@@ -11,7 +11,6 @@ def get_puzzle():
     nrow = 4
     if request.args.get('nrow'):
         nrow = int(request.args.get('nrow'))
-
     ladder = ladders.generate_ladder(td, lp, nrow)
     return ladders.generate_puzzle(ladder)
 

@@ -19,6 +19,7 @@ const Puzzle = ({ puzzle }) => {
         }
         initialState.push(puzzle.end.split(''))
         setRows(initialState)
+        setCorrectness(0)
     }, [ncol, puzzle.nrow, puzzle.start, puzzle.end])
 
     const setCell = (row, col, nc) => {
@@ -69,7 +70,7 @@ const Puzzle = ({ puzzle }) => {
                     <Row key={0} defaultText={puzzle.start} ncol={ncol} num={0}/>
                     {keys.slice(1, -1).map(key => <Row key={key} ncol={ncol} num={key} setCell={setCell}/>)}
                     <Row key={puzzle.nrow-1} defaultText={puzzle.end} ncol={ncol} num={puzzle.nrow-1}/>
-                    <button id="submit-button" type="submit">Check!</button>
+                    <button className="puzzleButton" type="submit">Check!</button>
                 </form>
                 <IncorrectMessage visible={correctness}/>
             </div>

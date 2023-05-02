@@ -38,9 +38,9 @@ const Row = ({ defaultText, ncol, num, setCell }) => {
     if (defaultText) {
         const clist = [...defaultText]
         return (
-            <div className="row default">
+            <div className="row row-default">
                 {clist.map((c, i) => 
-                    <div key={i}>
+                    <div className="text-cell" key={i}>
                         {c !== '_' ? c : ''}
                     </div>
                 )}
@@ -53,7 +53,7 @@ const Row = ({ defaultText, ncol, num, setCell }) => {
         <div className="row">
             {keys.map(k => 
                 <div key={k}>
-                    <input class="input-cell" id={`cell-${num}-${k}`} type="text" maxLength="1" onKeyDown={cellEditDown} onChange={cellChanged}/>
+                    <input className="input-cell" id={`cell-${num}-${k}`} type="text" maxLength="1" onKeyDown={cellEditDown} onChange={cellChanged}/>
                 </div>
             )}
         </div>

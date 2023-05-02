@@ -3,33 +3,39 @@ import puzzleService from './services/puzzleService'
 import Puzzle from './components/Puzzle'
 
 const App = () => {
+  const [nrows, setNRows] = useState(4)
   const [puzzlet, setPuzzlet] = useState(null)
 
+  const selectOptions = [3, 4, 5, 6, 7, 8, 9, 10]
+  const selectNRows = (event) => {
+    event.preventDefault()
+    const form = event.target
+    const formData = new FormData(form)
+    const newNRows = parseInt(formData.get('nrows'))
+    setNRows(newNRows)
+  }
+
   useEffect(() => {
-    console.log("test")
-    
-    puzzleService.getPuzzle(3).then(puzzleObj =>
+    puzzleService.getPuzzle(nrows).then(puzzleObj =>
       setPuzzlet(puzzleObj)
     )
-  }, [])
+  }, [nrows])
 
   if (puzzlet === null) {
     return <div>Loading...</div>
   }
 
   return (
-    /*
-    <div className="App">
-      <HeadRow head={puzzlet.head} />
-      <div className="grid">
-          <Row key={0} defaultText={puzzlet.start} ncol={ncol}/>
-          {keys.slice(1, -1).map(key => <Row key={key} ncol={ncol} />)}
-          <Row key={puzzlet.nrow-1} defaultText={puzzlet.end} ncol={ncol}/>
-      </div>
-    </div>
-    */
    <div className="App">
     <h1>Pokemon Puzzle Ladder!</h1>
+    <div className="selector" onSubmit={selectNRows}>
+      <form id='nrowsForm'>
+        Number of rows <select name="nrows" defaultValue={4}>
+            {selectOptions.map(i => <option key={i} value={i}>{i}</option>)}
+          </select>
+          <button id="nrowsButton" type="submit">Go!</button>
+      </form>
+    </div>
     <Puzzle puzzle={puzzlet} />
     <h2>Rules:</h2>
     <ul id="rules">

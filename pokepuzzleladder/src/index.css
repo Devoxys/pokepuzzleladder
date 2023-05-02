@@ -7,11 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .App {
   justify-content: center;
   text-align: center;
@@ -78,7 +73,11 @@ code {
   border: none;
 }
 
-button {
+.text-cell {
+  background-color: #f0f0f0;
+}
+
+.puzzleButton {
   border: none;
   padding: 10px 60px;
   margin: 10px auto;
@@ -101,4 +100,21 @@ button {
   font-size: 2em;
   padding: 20px;
   font-weight: bold;
+}
+
+.selector {
+  font-size: 24px;
+}
+
+.selector > form > select {
+  height: 100%;
+  font-size: 18px;
+}
+
+.selector > form > button {
+  padding: 5px 15px;
+  margin: 0px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
 }

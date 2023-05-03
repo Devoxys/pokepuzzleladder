@@ -97,10 +97,14 @@ body {
 
 .resultBox {
   background-color: aquamarine;
-  font-size: 2em;
   padding: 20px;
-  font-weight: bold;
+  font-size: 17px;
 }
+
+.resultBox > h2 {
+  font-size: 2em;
+}
+
 
 .optionsBand {
   display: flex;
@@ -148,4 +152,8 @@ body {
   border-radius: 3px;
   font-size: 18px;
   color: green;
+}
+
+img {
+  width: 500px;
 }

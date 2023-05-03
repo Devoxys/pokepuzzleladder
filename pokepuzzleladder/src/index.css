@@ -5,6 +5,205 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color)
+}
+
+:root {
+  --bg-color: rgba(211,233,239, 1);
+  --text-color: rgba(56,110,120, 1);
+  --text-soft-color: rgba(65,126,138, 1);
+  --text-strong-color: rgba(39,80,88, 1);
+  --subtle-color: rgba(221,238,242, 1);
+  --border-color: rgba(115,197,213, 1);
+  --shadow-color: rgba(105,182,196, 1);
+  --input-color: rgba(255,255,255, 1);
+  --outline-color: rgba(103,205,126, 1);
+  --mark-color: rgba(51,115,66, 0.08);
+  --special-color: rgba(51,115,66, 1);
+  --special-bg-color: rgba(60,133,77, 1);
+  --special-text-color: rgba(255,255,255, 1);
+  --special-shadow-color: rgba(57,84,62, 1);
+  --special-mark-color: rgba(255,255,255, 0.08);
+  --light-color: rgba(219,252,224, 1);
+  --dark-color: rgba(51,77,56, 1);
+  --text-color-rgb: 56,110,120;
+  --bg-color-rgb: 211,233,239;
+  --subtle-color-rgb: 221,238,242;
+  --special-color-rgb: 51,115,66;
+  --special-text-color-rgb: 255,255,255;
+  --special-bg-color-rgb: 60,133,77;
+  --shadow-color-rgb: 105,182,196;
+  --special-shadow-color-rgb: 57,84,62;
+  --outline-color-rgb: 103,205,126;
+  --dark-color-rgb: 51,77,56;
+  --light-color-rgb: 219,252,224;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: rgba(25,51,55, 1);
+    --text-color: rgba(84,161,175, 1);
+    --text-soft-color: rgba(76,146,159, 1);
+    --text-strong-color: rgba(107,201,218, 1);
+    --subtle-color: rgba(23,46,50, 1);
+    --border-color: rgba(46,84,92, 1);
+    --shadow-color: rgba(0,0,0, 1);
+    --input-color: rgba(32,32,32, 1);
+    --outline-color: rgba(87,177,108, 1);
+    --mark-color: rgba(85,167,103, 0.08);
+    --special-color: rgba(85,167,103, 1);
+    --special-bg-color: rgba(54,110,67, 1);
+    --special-text-color: rgba(205,229,209, 1);
+    --special-shadow-color: rgba(20,33,23, 1);
+    --special-mark-color: rgba(205,229,209, 0.08);
+    --light-color: rgba(123,235,148, 1);
+    --dark-color: rgba(35,58,40, 1);
+    --text-color-rgb: 84,161,175;
+    --bg-color-rgb: 25,51,55;
+    --subtle-color-rgb: 23,46,50;
+    --special-color-rgb: 85,167,103;
+    --special-text-color-rgb: 205,229,209;
+    --special-bg-color-rgb: 54,110,67;
+    --shadow-color-rgb: 0,0,0;
+    --special-shadow-color-rgb: 20,33,23;
+    --outline-color-rgb: 87,177,108;
+    --dark-color-rgb: 35,58,40;
+    --light-color-rgb: 123,235,148;
+  }
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  :root {
+    --bg-color: rgba(211,233,239, 1);
+    --text-color: rgba(39,80,88, 1);
+    --text-soft-color: rgba(39,80,88, 1);
+    --text-strong-color: rgba(39,80,88, 1);
+    --subtle-color: rgba(221,238,242, 1);
+    --border-color: rgba(74,131,141, 1);
+    --shadow-color: rgba(85,147,160, 1);
+    --input-color: rgba(255,255,255, 1);
+    --outline-color: rgba(93,187,115, 1);
+    --mark-color: rgba(36,84,47, 0.16);
+    --special-color: rgba(36,84,47, 1);
+    --special-bg-color: rgba(44,100,57, 1);
+    --special-text-color: rgba(255,255,255, 1);
+    --special-shadow-color: rgba(8,16,9, 1);
+    --special-mark-color: rgba(255,255,255, 0.16);
+    --light-color: rgba(219,252,224, 1);
+    --dark-color: rgba(51,77,56, 1);
+    --text-color-rgb: 39,80,88;
+    --bg-color-rgb: 211,233,239;
+    --subtle-color-rgb: 221,238,242;
+    --special-color-rgb: 36,84,47;
+    --special-text-color-rgb: 255,255,255;
+    --special-bg-color-rgb: 44,100,57;
+    --shadow-color-rgb: 85,147,160;
+    --special-shadow-color-rgb: 8,16,9;
+    --outline-color-rgb: 93,187,115;
+    --dark-color-rgb: 51,77,56;
+    --light-color-rgb: 219,252,224;
+  }
+}
+
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --bg-color: rgba(25,51,55, 1);
+    --text-color: rgba(107,201,218, 1);
+    --text-soft-color: rgba(107,201,218, 1);
+    --text-strong-color: rgba(107,201,218, 1);
+    --subtle-color: rgba(23,46,50, 1);
+    --border-color: rgba(84,146,158, 1);
+    --shadow-color: rgba(0,0,0, 1);
+    --input-color: rgba(32,32,32, 1);
+    --outline-color: rgba(86,173,106, 1);
+    --mark-color: rgba(108,208,130, 0.16);
+    --special-color: rgba(108,208,130, 1);
+    --special-bg-color: rgba(43,89,53, 1);
+    --special-text-color: rgba(231,242,233, 1);
+    --special-shadow-color: rgba(0,0,0, 1);
+    --special-mark-color: rgba(231,242,233, 0.16);
+    --light-color: rgba(161,247,178, 1);
+    --dark-color: rgba(35,58,40, 1);
+    --text-color-rgb: 107,201,218;
+    --bg-color-rgb: 25,51,55;
+    --subtle-color-rgb: 23,46,50;
+    --special-color-rgb: 108,208,130;
+    --special-text-color-rgb: 231,242,233;
+    --special-bg-color-rgb: 43,89,53;
+    --shadow-color-rgb: 0,0,0;
+    --special-shadow-color-rgb: 0,0,0;
+    --outline-color-rgb: 86,173,106;
+    --dark-color-rgb: 35,58,40;
+    --light-color-rgb: 161,247,178;
+  }
+}
+
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --bg-color: rgba(25,51,55, 1);
+    --text-color: rgba(107,201,218, 1);
+    --text-soft-color: rgba(107,201,218, 1);
+    --text-strong-color: rgba(107,201,218, 1);
+    --subtle-color: rgba(23,46,50, 1);
+    --border-color: rgba(84,146,158, 1);
+    --shadow-color: rgba(0,0,0, 1);
+    --input-color: rgba(32,32,32, 1);
+    --outline-color: rgba(146,163,80, 1);
+    --mark-color: rgba(176,197,100, 0.16);
+    --special-color: rgba(176,197,100, 1);
+    --special-bg-color: rgba(74,84,39, 1);
+    --special-text-color: rgba(235,242,216, 1);
+    --special-shadow-color: rgba(0,0,0, 1);
+    --special-mark-color: rgba(235,242,216, 0.16);
+    --light-color: rgba(214,239,123, 1);
+    --dark-color: rgba(49,55,30, 1);
+    --text-color-rgb: 107,201,218;
+    --bg-color-rgb: 25,51,55;
+    --subtle-color-rgb: 23,46,50;
+    --special-color-rgb: 176,197,100;
+    --special-text-color-rgb: 235,242,216;
+    --special-bg-color-rgb: 74,84,39;
+    --shadow-color-rgb: 0,0,0;
+    --special-shadow-color-rgb: 0,0,0;
+    --outline-color-rgb: 146,163,80;
+    --dark-color-rgb: 49,55,30;
+    --light-color-rgb: 214,239,123;
+  }
+}
+
+button {
+  background-color: var(--bg-color);
+  border: 3px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+button:hover {
+  background-color: var(--subtle-color);
+  border: 3px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+button:active {
+  box-shadow: var(--shadow-color);
+}
+
+button:disabled {
+  background-color: var(--bg-color);
+}
+
+select {
+  background-color: var(--input-color);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  border-radius: 3px;
+  outline: 2px solid var(--border-color-color);
+}
+
+img {
+  width: 500px;
 }
 
 .App {
@@ -70,15 +269,17 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
-  border: none;
+  border: 0;
+  background-color: var(--input-color);
+  outline: 0;
+  color: var(--text-color)
 }
 
 .text-cell {
-  background-color: #f0f0f0;
+  background-color: var(--subtle-color)
 }
 
 .puzzleButton {
-  border: none;
   padding: 10px 60px;
   margin: 10px auto;
   text-align: center;
@@ -92,13 +293,15 @@ body {
 
 .incorrectMessage {
   font-size: 1.25em;
-  color: red;
 }
 
 .resultBox {
-  background-color: aquamarine;
   padding: 20px;
   font-size: 17px;
+  color: var(--special-text-color);
+  background-color: var(--special-bg-color);
+  border-radius: 5px;
+  margin: 5px;
 }
 
 .resultBox > h2 {
@@ -131,7 +334,9 @@ body {
 }
 
 .leftSpace {
-  flex: 1
+  flex: 1;
+  font-size: 24px;
+  font-weight: bold;
 }
 .dailySwitch {
   flex: 1;
@@ -144,16 +349,11 @@ body {
   margin: 0px 3px;
   text-align: center;
   font-size: 18px;
+  border-radius: 3px;
 }
 
 .daily > button[disabled=true], button:disabled {
-  background-color: rgb(221, 248, 221);
   border: none;
   border-radius: 3px;
   font-size: 18px;
-  color: green;
-}
-
-img {
-  width: 500px;
 }

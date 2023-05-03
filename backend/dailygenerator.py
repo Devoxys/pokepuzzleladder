@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from util import get_pokemon_list, get_triedict
 import json
 from ladders import generate_puzzle, generate_ladder
+import random
 
 def generateDailyJson(sdate: date, ndays: int, td: dict, lp: list, jsonfile: str) -> None:
     datelist = [sdate + timedelta(days=x) for x in range(ndays)]
@@ -21,4 +22,5 @@ def generateDailyJson(sdate: date, ndays: int, td: dict, lp: list, jsonfile: str
 
 
 if __name__ == "__main__":
+    random.seed(10)
     generateDailyJson(date.today(), 400, get_triedict(), get_pokemon_list(), "daily.json")

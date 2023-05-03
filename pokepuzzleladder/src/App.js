@@ -7,16 +7,19 @@ const App = () => {
   const [nrows, setNRows] = useState(4)
   const [daily, setDaily] = useState(false)
   const [puzzlet, setPuzzlet] = useState(null)
+  const [modeText, setModeText] = useState('Freeplay 4')
 
   useEffect(() => {
     if (daily) {
       puzzleService.getDaily(nrows).then(puzzleObj =>
         setPuzzlet(puzzleObj)
       )
+      setModeText(`Daily ${nrows}`)
     } else {
       puzzleService.getPuzzle(nrows).then(puzzleObj =>
         setPuzzlet(puzzleObj)
       )
+      setModeText(`Freeplay ${nrows}`)
     }
   }, [nrows, daily])
 
@@ -50,7 +53,7 @@ const App = () => {
    <div className="App">
     <h1>Pokemon Puzzle Ladder!</h1>
     <div className="optionsBand">
-      <div className='leftSpace'></div>
+      <div className='leftSpace'>{modeText}</div>
       <div className="selector" onSubmit={selectNRows}>
         <form id='nrowsForm'>
             Number of rows <select id="nrows" name="nrows" defaultValue={4}>

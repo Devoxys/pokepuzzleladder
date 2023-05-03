@@ -85,8 +85,13 @@ button {
   text-align: center;
   display: inline-block;
   font-size: 1.5em;
+  display: none;
 }
 
 #rules {
   text-align: left;
+}
+
+img {
+  width: 500px;
 }

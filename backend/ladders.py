@@ -239,9 +239,4 @@ if __name__ == "__main__":
     #test_ladder = solve_ladder(td, 12, 8, [1, 4, 5, 7, 8, 8, 8, 7, 7, 4, 2, 1], "___arceus___", "_igglybuff__", ["arceus"], [])
     #print(test_ladder)
     #print(check_ladder(lp, 12, 6, [1, 4, 5, 6, 6, 6, 5, 5, 5, 3, 1, 1], test_ladder))
-    nrow = 5
-    gen_ladder = generate_ladder(td, lp, nrow)
-    ncol = len(gen_ladder["head"])
-    pretty_print(gen_ladder["head"], gen_ladder["ladder"])
-    print(generate_puzzle(gen_ladder))
-    print(check_ladder(lp, ncol, nrow, gen_ladder["head"], gen_ladder["ladder"]))
+    print((solve_ladder(td, 12, 5, [1, 1, 3, 4, 5, 5, 5, 5, 4, 3, 2, 1], "___hariyama_", "__arcanine__", ["hariyama"], [])))

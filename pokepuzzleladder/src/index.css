@@ -102,8 +102,15 @@ body {
   font-weight: bold;
 }
 
+.optionsBand {
+  display: flex;
+  justify-content: center;
+}
+
 .selector {
   font-size: 24px;
+  flex: 2;
+  align-self: center;
 }
 
 .selector > form > select {
@@ -117,4 +124,28 @@ body {
   text-align: center;
   display: inline-block;
   font-size: 18px;
+}
+
+.leftSpace {
+  flex: 1
+}
+.dailySwitch {
+  flex: 1;
+  align-self: flex-end;
+}
+
+.dailySwitch > button {
+  width: 100px;
+  padding: 7px 15px;
+  margin: 0px 3px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.daily > button[disabled=true], button:disabled {
+  background-color: rgb(221, 248, 221);
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+  color: green;
 }

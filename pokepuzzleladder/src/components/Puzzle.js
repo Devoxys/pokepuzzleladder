@@ -3,9 +3,10 @@ import puzzleService from '../services/puzzleService'
 import HeadRow from "./HeadRow"
 import Row from "./Row"
 import IncorrectMessage from './IncorrectMessage'
+import PlayAgain from './PlayAgain'
 import Result from './Result'
 
-const Puzzle = ({ puzzle }) => {
+const Puzzle = ({ puzzle, daily, playAgain }) => {
     const [rows, setRows] = useState([])
     const [correctness, setCorrectness] = useState(0)
 
@@ -19,8 +20,11 @@ const Puzzle = ({ puzzle }) => {
         }
         initialState.push(puzzle.end.split(''))
         setRows(initialState)
+        Array.from(document.querySelectorAll('input')).forEach(
+            input => (input.value = '')
+        )
         setCorrectness(0)
-    }, [ncol, puzzle.nrow, puzzle.start, puzzle.end])
+    }, [ncol, puzzle])
 
     const setCell = (row, col, nc) => {
         const initialRow = rows[row]
@@ -56,6 +60,7 @@ const Puzzle = ({ puzzle }) => {
                     <Row key={0} defaultText={puzzle.start} ncol={ncol} num={0}/>
                     {keys.slice(1, -1).map(key => <Row key={key} ncol={ncol} num={key} defaultText={rows[key].join('')}/>)}
                     <Row key={puzzle.nrow-1} defaultText={puzzle.end} ncol={ncol} num={puzzle.nrow-1}/>
+                    <PlayAgain visible={!daily} playAgain={playAgain} />
                     <Result visible={correctness}/>
                 </div>
             </div>

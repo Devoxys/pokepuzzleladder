@@ -1,5 +1,7 @@
 import ladders
 import util
+import json
+from datetime import date
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -13,6 +15,17 @@ def get_puzzle():
         nrow = int(request.args.get('nrow'))
     ladder = ladders.generate_ladder(td, lp, nrow)
     return ladders.generate_puzzle(ladder)
+
+@app.route('/daily', methods=['GET'])
+def get_daily():
+    nrow = 4
+    if request.args.get('nrow'):
+        nrow = int(request.args.get('nrow'))
+    datestring = date.today().strftime('%m-%d-%Y')
+    dailydict = {}
+    with open('daily.json') as infile:
+        dailydict = json.load(infile)
+    return dailydict[datestring][str(nrow)]
 
 @app.route('/check_ladder', methods=['POST'])
 def check_ladder():

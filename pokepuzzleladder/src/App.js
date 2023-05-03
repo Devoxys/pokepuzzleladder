@@ -1,10 +1,24 @@
 import { useState, useEffect } from 'react'
 import puzzleService from './services/puzzleService'
 import Puzzle from './components/Puzzle'
+import Rules from './components/Rules'
 
 const App = () => {
   const [nrows, setNRows] = useState(4)
+  const [daily, setDaily] = useState(false)
   const [puzzlet, setPuzzlet] = useState(null)
+
+  useEffect(() => {
+    if (daily) {
+      puzzleService.getDaily(nrows).then(puzzleObj =>
+        setPuzzlet(puzzleObj)
+      )
+    } else {
+      puzzleService.getPuzzle(nrows).then(puzzleObj =>
+        setPuzzlet(puzzleObj)
+      )
+    }
+  }, [nrows, daily])
 
   const selectOptions = [3, 4, 5, 6, 7, 8, 9, 10]
   const selectNRows = (event) => {
@@ -15,11 +29,18 @@ const App = () => {
     setNRows(newNRows)
   }
 
-  useEffect(() => {
+  const playAgain = () => {
     puzzleService.getPuzzle(nrows).then(puzzleObj =>
       setPuzzlet(puzzleObj)
     )
-  }, [nrows])
+  }
+
+  const togglePlay = () => {
+    const newNRows = parseInt(document.getElementById('nrows').value)
+    console.log(newNRows)
+    setNRows(newNRows)
+    setDaily(!daily)
+  }
 
   if (puzzlet === null) {
     return <div>Loading...</div>
@@ -28,26 +49,23 @@ const App = () => {
   return (
    <div className="App">
     <h1>Pokemon Puzzle Ladder!</h1>
-    <div className="selector" onSubmit={selectNRows}>
-      <form id='nrowsForm'>
-        Number of rows <select name="nrows" defaultValue={4}>
-            {selectOptions.map(i => <option key={i} value={i}>{i}</option>)}
-          </select>
-          <button id="nrowsButton" type="submit">Go!</button>
-      </form>
+    <div className="optionsBand">
+      <div className='leftSpace'></div>
+      <div className="selector" onSubmit={selectNRows}>
+        <form id='nrowsForm'>
+            Number of rows <select id="nrows" name="nrows" defaultValue={4}>
+                {selectOptions.map(i => <option key={i} value={i}>{i}</option>)}
+            </select>
+            <button id="nrowsButton" type="submit">Go!</button>
+        </form>
+      </div>
+      <div className='dailySwitch'>
+        <button id='dailyButton' disabled={daily} onClick={() => togglePlay()}>Daily</button>
+        <button id='freeplayButton' disabled={!daily} onClick={() => togglePlay()}>Freeplay</button>
+      </div>
     </div>
-    <Puzzle puzzle={puzzlet} />
-    <h2>Rules:</h2>
-    <ul id="rules">
-      <li><p>The goal is to complete the ladder of Pokémon names.</p></li>
-      <li><p>Each Pokémon name shares a "link" of 3 characters with the names above and/or below it. Each name is aligned in the columns by the link(s).</p></li>
-      <li><p>The numbers in above each column specify the number of characters in that column.</p></li>
-      <li><p>Unused boxes should be left blank.</p></li>
-      <li><p>Use Pokédex names. Forms and regional variants are not included.</p></li>
-      <li><p>Only alphanumerical characters are used. Spaces, hyphens, and dots are removed (i.e. mrmime, wochien)</p></li>
-      <li><p>Both Nidoran-M and Nidoran-F are "nidoran".</p></li>
-      <li><p>Flabébé is "flabebe".</p></li>
-    </ul>
+    <Puzzle puzzle={puzzlet} daily={daily} playAgain={playAgain}/>
+    <Rules />
    </div>
   );
 }

@@ -15,7 +15,7 @@ const Rules = () => {
             <li><p>Only alphanumerical characters are used. Spaces, hyphens, and dots are removed (i.e. mrmime, wochien)</p></li>
             <li><p>Both Nidoran-M and Nidoran-F are "nidoran".</p></li>
             <li><p>Flabébé is "flabebe".</p></li>
-            <li><p>Example:</p><img src={example_ladder} alt="Example Ladder: Garbodor Boldore Goldeen Golbat" /></li>
+            <li><p>Example:</p><img src={example_ladder} alt="Example Ladder: Pawniard Braviary Staravia Staryu" /></li>
             </ul>
         </>
     )

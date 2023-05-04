@@ -9,7 +9,7 @@ const App = () => {
   useEffect(() => {
     console.log("test")
     
-    puzzleService.getPuzzle(5).then(puzzleObj =>
+    puzzleService.getPuzzle(4).then(puzzleObj =>
       setPuzzlet(puzzleObj)
     )
   }, [])

@@ -49,6 +49,8 @@ const App = () => {
     return <div>Loading...</div>
   }
 
+  console.log('Shoutouts to rabidragon!')
+
   return (
    <div className="App">
     <h1>Pokemon Puzzle Ladder!</h1>

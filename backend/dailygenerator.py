@@ -22,5 +22,4 @@ def generateDailyJson(sdate: date, ndays: int, td: dict, lp: list, jsonfile: str
 
 
 if __name__ == "__main__":
-    random.seed(10)
     generateDailyJson(date.today(), 400, get_triedict(), get_pokemon_list(), "daily.json")

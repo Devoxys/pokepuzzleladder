@@ -1,12 +1,16 @@
+from flask import Flask, request
 import ladders
 import util
 import json
 from datetime import date
-from flask import Flask, request
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../pokepuzzleladder/build', static_url_path='/')
 td = util.get_triedict()
 lp = util.get_pokemon_list()
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/puzzle', methods=['GET'])
 def get_puzzle():

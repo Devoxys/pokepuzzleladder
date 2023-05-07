@@ -27,7 +27,7 @@ def get_daily():
         nrow = int(request.args.get('nrow'))
     datestring = date.today().strftime('%m-%d-%Y')
     dailydict = {}
-    with open('daily.json') as infile:
+    with open('../daily.json') as infile:
         dailydict = json.load(infile)
     return dailydict[datestring][str(nrow)]
 

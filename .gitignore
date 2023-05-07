@@ -186,3 +186,4 @@ cython_debug/
 
 backend/solveladder.py
 backend/daily.json
+daily.json

@@ -10,6 +10,10 @@ const App = () => {
   const [modeText, setModeText] = useState('Freeplay 4')
 
   useEffect(() => {
+    document.title = 'Pokémon Puzzle Ladder'
+  }, [])
+
+  useEffect(() => {
     if (daily) {
       puzzleService.getDaily(nrows).then(puzzleObj =>
         setPuzzlet(puzzleObj)

@@ -66,15 +66,14 @@ const Puzzle = ({ puzzle, daily, playAgain }) => {
                     localStorage.setItem(`daily-${puzzle.nrow}-lastPlay`, new Date().setHours(0, 0, 0, 0).toLocaleString())
                 } else {
                     localStorage.setItem(`daily-${puzzle.nrow}-count`, parseInt(localStorage.getItem(`daily-${puzzle.nrow}-count`)) + 1)
-                    const currentDate = new Date()
+                    const currentDate = new Date().setHours(0, 0, 0, 0).toLocaleString()
                     const streakDate = localStorage.getItem(`daily-${puzzle.nrow}-lastPlay`)
-                    const yesterday = new Date().setDate(currentDate.getDate() - 1).setHours(0, 0, 0, 0).toLocaleString()
-                    if (streakDate === yesterday) {
+                    if (currentDate - streakDate === 86400000) {
                         localStorage.setItem(`daily-${puzzle.nrow}-streak`, parseInt(localStorage.getItem(`daily-${puzzle.nrow}-streak`)) + 1)
-                        localStorage.setItem(`daily-${puzzle.nrow}-lastPlay`, currentDate.setHours(0, 0, 0, 0).toLocaleString())
+                        localStorage.setItem(`daily-${puzzle.nrow}-lastPlay`, currentDate)
                     } else {
                         localStorage.setItem(`daily-${puzzle.nrow}-streak`, 1)
-                        localStorage.setItem(`daily-${puzzle.nrow}-lastPlay`, currentDate.setHours(0, 0, 0, 0).toLocaleString())
+                        localStorage.setItem(`daily-${puzzle.nrow}-lastPlay`, currentDate)
                     }
                 }
                 localStorage.setItem(`daily-${puzzle.nrow}-ladder`, JSON.stringify(ladderObj))

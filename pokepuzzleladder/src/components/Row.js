@@ -53,7 +53,7 @@ const Row = ({ defaultText, ncol, num, setCell }) => {
         <div className="row">
             {keys.map(k => 
                 <div key={k}>
-                    <input class="input-cell" id={`cell-${num}-${k}`} type="text" maxLength="1" onKeyDown={cellEditDown} onChange={cellChanged}/>
+                    <input className="input-cell" id={`cell-${num}-${k}`} type="text" maxLength="1" onKeyDown={cellEditDown} onChange={cellChanged}/>
                 </div>
             )}
         </div>

@@ -204,6 +204,7 @@ dialga
 diancie
 diggersby
 diglett
+dipplin
 ditto
 dodrio
 doduo
@@ -278,6 +279,7 @@ fennekin
 feraligatr
 ferroseed
 ferrothorn
+fezandipity
 fidough
 finizen
 finneon
@@ -579,6 +581,7 @@ mudsdale
 muk
 munchlax
 munna
+munkidori
 murkrow
 musharna
 nacli
@@ -606,7 +609,9 @@ nymble
 obstagoon
 octillery
 oddish
+ogerpon
 oinkologne
+okidogi
 omanyte
 omastar
 onix
@@ -661,6 +666,7 @@ politoed
 poliwag
 poliwhirl
 poliwrath
+poltchageist
 polteageist
 ponyta
 poochyena
@@ -781,6 +787,7 @@ silvally
 simipour
 simisage
 simisear
+sinistcha
 sinistea
 sirfetchd
 sizzlipede

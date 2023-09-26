@@ -7,7 +7,7 @@ const App = () => {
   const [puzzlet, setPuzzlet] = useState(null)
 
   useEffect(() => {
-    console.log("test")
+    // console.log("test")
     
     puzzleService.getPuzzle(5).then(puzzleObj =>
       setPuzzlet(puzzleObj)
@@ -46,6 +46,9 @@ const App = () => {
       <li><p>Flabébé is "flabebe".</p></li>
       <li><p>Example:</p> <img src={example_ladder} alt='Example: Garbodor Boldore Goldeen Golbat'/></li>
     </ul>
+
+    <br></br>
+    <p id="solution"><b>Solution:</b> {puzzlet.solution.map(key => key + ", ")}</p>
    </div>
   );
 }

@@ -225,7 +225,7 @@ def generate_ladder(td: dict, lp: list, nrow: int) -> dict:
     return { "head": head, "ladder": full_ladder }
 
 def generate_puzzle(solution: dict) -> dict:
-    return { "head": solution["head"], "start": solution["ladder"][0], "end": solution["ladder"][-1], "nrow": len(solution["ladder"]) }
+    return { "head": solution["head"], "start": solution["ladder"][0], "end": solution["ladder"][-1], "nrow": len(solution["ladder"]), "solution": solution["ladder"] }
 
 
 if __name__ == "__main__":
